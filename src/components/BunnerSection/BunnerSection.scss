@@ -1,0 +1,27 @@
+@use '../../styles/mixins' as *;
+
+.bunner {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 16px;
+
+  @include media(lg) {
+    flex-direction: row;
+  }
+
+  &__container {
+    &--short {
+      flex: 1;
+    }
+  
+    &--wide {
+      flex: 1;
+
+      @include media(xxl) {
+        flex: 2;
+      }
+    }
+  }
+
+}

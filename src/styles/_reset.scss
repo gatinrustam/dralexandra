@@ -1,0 +1,73 @@
+@use "./mixins" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding: 53px;
+	
+	@media (min-width: 600px) {
+		scroll-padding: 62px;
+	}
+}
+
+body {
+	font-family: 'Nunito Sans', sans-serif;
+	color: #2e2e2e;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.3em;
+	
+	@include media(md) {
+		font-size: 20px;
+	}
+}
+
+.body {
+	&--hidden {
+		overflow: hidden;
+	}
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+button {
+	font-family: 'Nunito Sans', sans-serif;
+	padding: 0;
+	border: 0;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+a {
+	text-decoration: none;
+	color: #0056ff;
+	border-bottom: 1px solid #0056ff;
+
+	&:hover {
+		color: #232222;
+		border-bottom: 1px solid #232222;
+	}
+}

@@ -1,0 +1,61 @@
+@use '../../styles/mixins' as *;
+
+.promotion {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 32px;
+  height: 100%;
+  justify-content: space-between;
+  background-color: #D9E8EE;
+  background-image: url('./assets/images/blue-line.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 120%;
+  border-radius: 16px;
+  padding: 24px 16px;
+  
+  @include media(md) {
+    flex-direction: column;
+  }
+
+  @include media(xxl) {
+    background-size: initial;
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #424f54;
+
+    @include media(md) {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  &__title {
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &__description { 
+    margin-bottom: 16px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 65%;
+    margin: auto;
+  }
+
+  & img {
+    width: 100%;
+  }
+}

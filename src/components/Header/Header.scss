@@ -1,0 +1,203 @@
+@use '../../styles/mixins' as *;
+
+.header {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    z-index: 10;
+
+    @include media(md) {
+        left: 16px;
+        right: 16px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: rgba(253, 251, 253, 0.6);
+        backdrop-filter: saturate(180%) blur(8px);
+        border-radius: 8px;
+        padding: 12px;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+
+        @include media(md) {
+            padding: 8px;
+            border-radius: 16px;
+        }
+    }
+
+    &__logo {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.2em;
+        margin-right: auto;
+        border: none;
+        color: #2e2e2e;
+        position: relative;
+        z-index: 4;
+        white-space: nowrap;
+
+        &:hover {
+            border: none;
+        }
+
+        & img {
+            width: 100%;
+        }
+
+        @include media(md) {
+            font-size: 28px;
+        }
+    }
+
+    &__order {
+        padding: 12px 24px;
+        border-radius: var(--main-border-radius);
+        text-decoration: none;
+        font-weight: 700;
+        background-color: #673ab7;
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        height: 100vh;
+
+        @include media(md) {
+            position: static;
+            display: flex;
+            align-items: center;
+            width: initial;
+            height: initial;
+        }
+
+        &--active {
+            display: block;
+        }
+    }
+
+    &__burger {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+
+        & img {
+            width: 100%;
+        }
+
+
+        & label {
+            display: flex;
+            flex-direction: column;
+            width: 24px;
+            cursor: pointer;
+        }
+
+        & label span {
+            background: #2e2e2e;
+            border-radius: 10px;
+            height: 2px;
+            margin: 2px 0;
+            transition: .4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+
+        & span:nth-of-type(1) {
+            width: 50%;
+        }
+
+        & span:nth-of-type(2) {
+            width: 100%;
+        }
+
+        & span:nth-of-type(3) {
+            width: 75%;
+        }
+
+        & input[type="checkbox"] {
+            display: none;
+        }
+
+        & input[type="checkbox"]:checked~span:nth-of-type(1) {
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(14px, -0.5px)
+        }
+
+        & input[type="checkbox"]:checked~span:nth-of-type(2) {
+            transform-origin: top;
+            transform: rotatez(-45deg)
+        }
+
+        & input[type="checkbox"]:checked~span:nth-of-type(3) {
+            transform-origin: bottom;
+            width: 50%;
+            transform: translate(2px, -11px) rotatez(45deg);
+        }
+
+        @include media(md) {
+            display: none;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+        border-radius: 16px;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100% - 74px);
+        padding: 48px;
+        background-color: rgba(253, 251, 253, .8);
+        backdrop-filter: saturate(180%) blur(10px);
+    
+        @include media(md) {
+            flex-direction: row;
+            align-items: center;
+            padding: 8px 0;
+            background-color: initial;
+            backdrop-filter: initial;
+            -webkit-backdrop-filter: initial;
+        }
+    }
+
+    &__item {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.2em;
+        
+        @include media(md) {
+            font-size: 20px;
+            display: inline;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #232222;
+        border-bottom: none;
+        
+        &:hover {
+            border-bottom: 1px solid #232222;
+        }
+    }
+
+    &__button {
+        margin-left: 24px;
+    }
+}
